@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CJP & Sonam Wangchuk – Research Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════════ */
+:root {
+  --cream:       #F7F3EC;
+  --cream-dark:  #EDE7DA;
+  --cream-mid:   #F2EDE3;
+  --white:       #FFFFFF;
+  --navy:        #1C2B3A;
+  --navy-light:  #2D4055;
+  --gold:        #B8962E;
+  --gold-light:  #D4AF5A;
+  --gold-pale:   #F5EDD3;
+  --text-dark:   #1A1A1A;
+  --text-mid:    #4A4A4A;
+  --text-light:  #7A7A7A;
+  --text-xlight: #A8A8A8;
+  --border:      #DDD7CC;
+  --border-dark: #C8C0B0;
+  --red-soft:    #C0392B;
+  --green-soft:  #2E7D52;
+  --blue-soft:   #2563A8;
+  --shadow-sm:   0 2px 12px rgba(28,43,58,0.06);
+  --shadow-md:   0 8px 32px rgba(28,43,58,0.10);
+  --shadow-lg:   0 20px 60px rgba(28,43,58,0.13);
+  --radius:      12px;
+  --radius-lg:   20px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius:4px; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top:0; left:0; width:100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 64px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 20px rgba(28,43,58,0.07);
+  transition: box-shadow 0.3s;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-brand-mark {
+  width: 36px; height: 36px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  font-size: 1rem;
+}
+.nav-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.3px;
+}
+.nav-brand-sub {
+  font-size: 0.68rem;
+  color: var(--text-light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 6px;
+  letter-spacing: 0.2px;
+  transition: all 0.2s;
+}
+.nav-links a:hover {
+  color: var(--navy);
+  background: var(--cream);
+}
+.nav-cta {
+  background: var(--navy) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+}
+.nav-cta:hover { background: var(--navy-light) !important; }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 68px 0 0;
+}
+.hero-left {
+  padding: 80px 64px 80px 80px;
+  border-right: 1px solid var(--border);
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-light);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.hero-title span { color: var(--gold); }
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(28,43,58,0.2);
+}
+.btn-navy:hover { background: var(--navy-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,43,58,0.25); }
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--border-dark);
+}
+.btn-outline:hover { background: var(--cream); border-color: var(--navy); transform: translateY(-2px); }
+
+.hero-right {
+  padding: 80px 80px 80px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.hero-stat-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+}
+.hero-stat-card:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  transform: translateX(6px);
+}
+.stat-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.si-gold { background: var(--gold-pale); }
+.si-navy { background: rgba(28,43,58,0.08); }
+.si-green { background: rgba(46,125,82,0.08); }
+.stat-content {}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-lbl {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ═══════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════ */
+.divider-strip {
+  background: var(--navy);
+  padding: 20px 80px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.divider-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.divider-item span { color: var(--gold-light); }
+.divider-dot { width: 4px; height: 4px; border-radius:50%; background: var(--gold); opacity: 0.5; }
+
+/* ═══════════════════════════════════════════
+   SECTION COMMON
+═══════════════════════════════════════════ */
+section { padding: 96px 80px; }
+.section-header { margin-bottom: 64px; }
+.section-header.centered { text-align:center; }
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.section-eyebrow::before,
+.section-eyebrow::after { content:''; flex:1; height:1px; background: var(--gold-light); opacity:0.5; }
+.section-eyebrow.centered::before,
+.section-eyebrow.centered::after { width: 40px; }
+.sh-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.sh-rule { height:2px; width:40px; background:var(--gold); border-radius:2px; flex-shrink:0; }
+.sh-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-mid);
+  max-width: 560px;
+  line-height: 1.8;
+}
+.section-header.centered .section-desc { margin:0 auto; }
+
+/* ═══════════════════════════════════════════
+   CJP OVERVIEW
+═══════════════════════════════════════════ */
+#cjp-overview {
+  background: var(--white);
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.overview-left {}
+.overview-block {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+}
+.ob-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.ob-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.ob-desc {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  margin-top: 6px;
+  line-height: 1.7;
+}
+.overview-right {}
+.info-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+.info-card:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold-light);
+}
+.ic-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ic-icon {
+  width: 32px; height: 32px;
+  background: var(--gold-pale);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.ic-desc {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+/* ═══════════════════════════════════════════
+   FOUR PILLARS
+═══════════════════════════════════════════ */
+#pillars {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.pillar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::after {
+  content:'';
+  position: absolute;
+  bottom:0; left:0; right:0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.pillar-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+.pillar-card:hover::after { transform: scaleX(1); }
+.pillar-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--cream-dark);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.pillar-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+.pillar-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   CJP ACHIEVEMENTS
+═══════════════════════════════════════════ */
+#achievements { background: var(--white); }
+.achievements-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.achieve-list {}
+.achieve-item {
+  display: flex;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.achieve-item:first-child { padding-top:0; }
+.achieve-item:last-child { border-bottom:none; }
+.achieve-item:hover .ai-num { background: var(--navy); color: #fff; }
+.ai-num {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.ai-content {}
+.ai-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.ai-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.achieve-sidebar {}
+.sidebar-card {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.sc-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.sc-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.sc-sub { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height:1.6; }
+.sidebar-note {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.sn-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+.sn-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRAMS
+═══════════════════════════════════════════ */
+#programs { background: var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.program-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  transition: all 0.3s;
+  position: relative;
+}
+.program-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  border-color: var(--border-dark);
+}
+.pc-tag {
+  display: inline-block;
+  background: var(--gold-pale);
+  color: var(--gold);
+  border: 1px solid var(--gold-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.pc-icon { font-size: 2.2rem; margin-bottom: 16px; }
+.pc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.pc-desc {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+.pc-stat {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   BANNER – WANGCHUK
+═══════════════════════════════════════════ */
+#wangchuk-banner {
+  background: var(--navy);
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.wb-left {}
+.wb-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.wb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.wb-title em { color: var(--gold-light); font-style:normal; }
+.wb-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+.wb-badges { display:flex; gap:10px; flex-wrap:wrap; }
+.wb-badge {
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.06);
+}
+.wb-right {}
+.wb-facts {}
+.wb-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.wb-fact:last-child { border-bottom:none; }
+.wbf-icon {
+  width: 40px; height: 40px;
+  background: rgba(184,150,46,0.2);
+  border: 1px solid rgba(184,150,46,0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.wbf-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+.wbf-value {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════
+   INNOVATIONS
+═══════════════════════════════════════════ */
+#innovations { background: var(--white); }
+.innovations-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.il-featured {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  position: sticky;
+  top: 90px;
+}
+.ilf-badge {
+  display: inline-block;
+  background: var(--gold-pale);
+  color: var(--gold);
+  border: 1px solid var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.ilf-icon { font-size: 3.5rem; margin-bottom: 20px; }
+.ilf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.ilf-desc {
+  font-size: 0.93rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.ilf-fact {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.ilf-fact strong { color: var(--navy); }
+.il-list { display: flex; flex-direction: column; gap: 20px; }
+.il-item {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+.il-item:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-dark);
+}
+.ili-icon {
+  width: 48px; height: 48px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.ili-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.ili-year {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+.ili-desc {
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════ */
+#timeline { background: var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.timeline-container { max-width: 860px; margin: 0 auto; position:relative; }
+.timeline-line {
+  position: absolute;
+  left: 22px;
+  top: 0; bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--gold), var(--border));
+}
+.tl-entry {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 62px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.55s ease;
+}
+.tl-entry.visible { opacity:1; transform: translateY(0); }
+.tl-node {
+  position: absolute;
+  left: 8px;
+  top: 20px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  box-shadow: 0 0 0 4px var(--cream);
+  z-index: 2;
+}
+.tl-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  flex: 1;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.tl-card::before {
+  content:'';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+}
+.tl-card.red::before { background: var(--red-soft); }
+.tl-card.green::before { background: var(--green-soft); }
+.tl-card.gold::before { background: var(--gold); }
+.tl-card.blue::before { background: var(--blue-soft); }
+.tl-card.navy::before { background: var(--navy); }
+.tl-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-dark); }
+.tc-date {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.tc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.tc-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+.tc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.tc-status.red { background: rgba(192,57,43,0.08); color: var(--red-soft); border:1px solid rgba(192,57,43,0.2); }
+.tc-status.green { background: rgba(46,125,82,0.08); color: var(--green-soft); border:1px solid rgba(46,125,82,0.2); }
+.tc-status.gold { background: var(--gold-pale); color: var(--gold); border:1px solid var(--gold-light); }
+.tc-status.blue { background: rgba(37,99,168,0.08); color: var(--blue-soft); border:1px solid rgba(37,99,168,0.2); }
+.tc-status.navy { background: rgba(28,43,58,0.08); color: var(--navy); border:1px solid rgba(28,43,58,0.2); }
+.tc-status::before { content:'●'; font-size:0.5rem; }
+
+/* ═══════════════════════════════════════════
+   DEMANDS TABLE
+═══════════════════════════════════════════ */
+#demands { background: var(--white); }
+.table-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+table { width:100%; border-collapse: collapse; }
+thead { background: var(--navy); }
+th {
+  padding: 16px 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-align: left;
+}
+th:first-child { color: var(--gold-light); }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.2s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--cream); }
+td {
+  padding: 18px 24px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  vertical-align: top;
+  line-height: 1.6;
+}
+td:first-child {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.t-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.t-red { background: rgba(192,57,43,0.08); color: var(--red-soft); border:1px solid rgba(192,57,43,0.2); }
+.t-green { background: rgba(46,125,82,0.08); color: var(--green-soft); border:1px solid rgba(46,125,82,0.2); }
+.t-gold { background: var(--gold-pale); color: var(--gold); border:1px solid var(--gold-light); }
+.t-blue { background: rgba(37,99,168,0.08); color: var(--blue-soft); border:1px solid rgba(37,99,168,0.2); }
+
+/* ═══════════════════════════════════════════
+   AWARDS
+═══════════════════════════════════════════ */
+#awards { background: var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.award-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.award-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  border-color: var(--gold-light);
+}
+.award-card::before {
+  content:'';
+  position: absolute;
+  top:0; left:0; right:0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.award-year {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.award-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.award-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.award-org { font-size: 0.82rem; color: var(--text-light); line-height:1.5; }
+
+/* ═══════════════════════════════════════════
+   KEY PEOPLE
+═══════════════════════════════════════════ */
+#people { background: var(--white); }
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.person-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all 0.3s;
+}
+.person-card:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-dark);
+  transform: translateY(-4px);
+}
+.person-avatar {
+  width: 56px; height: 56px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.person-role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.person-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.person-bio {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+.person-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 5px 14px;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-light);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════
+   SOURCES
+═══════════════════════════════════════════ */
+#sources { background: var(--cream); border-top:1px solid var(--border); }
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.source-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+.source-card:hover {
+  border-color: var(--gold-light);
+  box-shadow: var(--shadow-sm);
+}
+.src-icon {
+  width: 36px; height: 36px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink:0;
+}
+.src-type {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.src-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.src-url { font-size: 0.78rem; color: var(--text-xlight); }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--navy);
+  padding: 64px 80px 36px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 36px;
+}
+.footer-brand {}
+.fb-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.fb-logo span { color: var(--gold-light); }
+.fb-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+  max-width: 260px;
+}
+.footer-col {}
+.fc-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.fc-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.fc-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+.fc-links a:hover { color: rgba(255,255,255,0.85); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.3px;
+}
+.footer-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════
+   STATS COUNTER STRIP
+═══════════════════════════════════════════ */
+#counter-strip {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 80px;
+}
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.counter-item {
+  text-align: center;
+  padding: 0 24px;
+  border-right: 1px solid var(--border);
+}
+.counter-item:last-child { border-right:none; }
+.ci-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ci-num sup { font-size: 1.2rem; color: var(--gold); }
+.ci-label {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  section { padding: 72px 40px; }
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display:none; }
+  nav { padding: 0 32px; }
+  .nav-links { display:none; }
+  .overview-grid,
+  .achievements-layout,
+  .innovations-layout,
+  #wangchuk-banner { grid-template-columns: 1fr; }
+  .pillars-grid,
+  .awards-grid,
+  .people-grid { grid-template-columns: repeat(2,1fr); }
+  .programs-grid { grid-template-columns: 1fr 1fr; }
+  .counter-grid { grid-template-columns: repeat(3,1fr); gap:24px; }
+  .counter-item { border-right:none; }
+  .sources-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 48px 40px 28px; }
+  #counter-strip { padding: 40px; }
+}
+
+@media (max-width: 640px) {
+  section { padding: 56px 20px; }
+  .hero-left { padding: 60px 20px; }
+  #wangchuk-banner { padding: 48px 20px; }
+  .pillars-grid,
+  .awards-grid,
+  .people-grid,
+  .programs-grid,
+  .sources-grid { grid-template-columns: 1fr; }
+  .counter-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-top { grid-template-columns: 1fr; }
+  footer { padding: 40px 20px 24px; }
+  #counter-strip { padding: 32px 20px; }
+  .table-wrap { overflow-x: auto; }
+  .divider-strip { padding: 16px 20px; gap:32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav id="mainNav">
+  <div class="nav-brand">
+    <div class="nav-brand-mark">⚖</div>
+    <div>
+      <div class="nav-brand-name">Research Portal</div>
+      <div class="nav-brand-sub">CJP & Sonam Wangchuk</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#cjp-overview">CJP</a></li>
+    <li><a href="#pillars">Pillars</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#innovations">Innovations</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#people">People</a></li>
+    <li><a href="#sources" class="nav-cta">Sources</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Academic Research Portal · 2026</div>
+    <h1 class="hero-title">
+      CJP &amp; <span>Sonam Wangchuk</span><br/>A Comprehensive Study
+    </h1>
+    <p class="hero-desc">
+      An authoritative research compendium on India's foremost civil rights organisation — Citizens for Justice and Peace — and the life, innovations, and protest movement of Ladakh's most iconic activist.
+    </p>
+    <div class="hero-btns">
+      <a href="#cjp-overview" class="btn btn-navy">⚖ Explore CJP</a>
+      <a href="#wangchuk-banner" class="btn btn-outline">🏔 Sonam Wangchuk</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="stat-icon si-gold">⚖️</div>
+      <div class="stat-content">
+        <div class="stat-num">68+</div>
+        <div class="stat-lbl">Gujarat Cases Battled by CJP</div>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-icon si-navy">🏆</div>
+      <div class="stat-content">
+        <div class="stat-num">170+</div>
+        <div class="stat-lbl">Total Convictions Secured</div>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-icon si-green">🧊</div>
+      <div class="stat-content">
+        <div class="stat-num">2018</div>
+        <div class="stat-lbl">Ramon Magsaysay Award — Wangchuk</div>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-icon si-gold">📚</div>
+      <div class="stat-content">
+        <div class="stat-num">56,000+</div>
+        <div class="stat-lbl">Students Reached via KHOJ Program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DIVIDER STRIP ═══════════ -->
+<div class="divider-strip">
+  <div class="divider-item">Founded <span>April 2002</span></div>
+  <div class="divider-dot"></div>
+  <div class="divider-item">Cases <span>68+</span></div>
+  <div class="divider-dot"></div>
+  <div class="divider-item">Convictions <span>170+</span></div>
+  <div class="divider-dot"></div>
+  <div class="divider-item">Students Reached <span>56,000+</span></div>
+  <div class="divider-dot"></div>
+  <div class="divider-item">Protest Since <span>2021</span></div>
+  <div class="divider-dot"></div>
+  <div class="divider-item">Ramon Magsaysay <span>2018</span></div>
+</div>
+
+<!-- ═══════════ COUNTER STRIP ═══════════ -->
+<div id="counter-strip">
+  <div class="counter-grid">
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="68">0</span><sup>+</sup></div>
+      <div class="ci-label">Gujarat Cases Battled</div>
+    </div>
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="170">0</span><sup>+</sup></div>
+      <div class="ci-label">Total Convictions</div>
+    </div>
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="124">0</span></div>
+      <div class="ci-label">Life Imprisonments</div>
+    </div>
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="56000">0</span></div>
+      <div class="ci-label">Students via KHOJ</div>
+    </div>
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="1300">0</span><sup>+</sup></div>
+      <div class="ci-label">Teachers Trained</div>
+    </div>
+    <div class="counter-item reveal">
+      <div class="ci-num"><span data-target="200">0</span><sup>+</sup></div>
+      <div class="ci-label">Hate Speech Petitions Filed</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CJP OVERVIEW ═══════════ -->
+<section id="cjp-overview">
+  <div class="section-header reveal">
+    <div class="sh-line">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Citizens for Justice and Peace</div>
+    </div>
+    <h2 class="section-title">Organisation Overview</h2>
+    <p class="section-desc">Founded in the aftermath of the 2002 Gujarat carnage, CJP has grown into India's most consequential civil rights organisation — built on constitutional values, legal advocacy, and grassroots action.</p>
+  </div>
+  <div class="overview-grid">
+    <div class="overview-left reveal">
+      <div class="overview-block">
+        <div class="ob-label">Founded</div>
+        <div class="ob-value">April 1, 2002</div>
+        <div class="ob-desc">Established as a collective citizen response to the communal carnage in Gujarat, with Teesta Setalvad and Javed Anand as primary founders.</div>
+      </div>
+      <div class="overview-block">
+        <div class="ob-label">Legal Registration</div>
+        <div class="ob-value">Society & Trust (India)</div>
+        <div class="ob-desc">Registered under the Societies Registration Act, 1860 and the Bombay Public Trusts Act, 1950. Donations exempt under Section 80(G) of the Income Tax Act.</div>
+      </div>
+      <div class="overview-block">
+        <div class="ob-label">Funding Policy</div>
+        <div class="ob-value">100% Domestic Contributions</div>
+        <div class="ob-desc">CJP does not accept contributions from any foreign sources. It depends entirely on contributions from Indian citizens and organisations.</div>
+      </div>
+      <div class="overview-block">
+        <div class="ob-label">Headquarters</div>
+        <div class="ob-value">Mumbai, Maharashtra</div>
+        <div class="ob-desc">P.O. Box 28253, Juhu Post Office, Juhu, Mumbai – 400049. Ph: 26602288 / 26603927.</div>
+      </div>
+    </div>
+    <div class="overview-right reveal">
+      <div class="info-card">
+        <div class="ic-title">
+          <div class="ic-icon">🎯</div>
+          Core Mission
+        </div>
+        <p class="ic-desc">To uphold and defend the freedoms and constitutional rights of all Indians — especially the marginalised. CJP promotes communal harmony, builds public opinion for justice, and checks threats to Indian democracy and the Rule of Law.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-title">
+          <div class="ic-icon">⚖️</div>
+          Concerned Citizens Tribunal
+        </div>
+        <p class="ic-desc">CJP established a citizens' tribunal headed by Justice VR Krishna Iyer (retd., Supreme Court) and two other retired judges. Their 3-volume report, "Crime Against Humanity," remains the most authoritative document on the Gujarat violence nationally and internationally.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-title">
+          <div class="ic-icon">🏛️</div>
+          Best Bakery Case Victory
+        </div>
+        <p class="ic-desc">In April 2004, the Supreme Court of India transferred the Best Bakery case to Maharashtra — overturning the acquittal of 21 accused and ordering fresh investigation and trial. A landmark judicial milestone in post-riot justice.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-title">
+          <div class="ic-icon">📋</div>
+          Zakia Jafri Case
+        </div>
+        <p class="ic-desc">CJP and Zakia Jafri moved the Supreme Court, seeking investigation of key evidence that the SIT had overlooked in its closure report on the Gujarat 2002 violence — demanding comprehensive accountability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOUR PILLARS ═══════════ -->
+<section id="pillars">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Ideology</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">The Four Pillars of CJP</h2>
+    <p class="section-desc">CJP's work is anchored in four foundational areas that together form a comprehensive framework for justice, rights, and democratic accountability in India.</p>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card reveal">
+      <div class="pillar-number">01</div>
+      <div class="pillar-icon">🕊️</div>
+      <div class="pillar-name">Minority Rights</div>
+      <p class="pillar-desc">Protecting the rights of religious, ethnic, caste, gender and sexual minorities as well as persons with disabilities — ensuring no community is left without constitutional protection.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-number">02</div>
+      <div class="pillar-icon">🗣️</div>
+      <div class="pillar-name">Freedom of Expression</div>
+      <p class="pillar-desc">Championing free expression and the dignity of all belief systems, cultures, and languages — while firmly opposing hate speech as an abuse of democratic freedom.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-number">03</div>
+      <div class="pillar-icon">🏛️</div>
+      <div class="pillar-name">Criminal Justice Reform</div>
+      <p class="pillar-desc">Advocating for democratisation of investigation, prosecutorial, and judicial agencies to ensure quality, transparency, and timely justice delivery for all citizens.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <div class="pillar-number">04</div>
+      <div class="pillar-icon">📖</div>
+      <div class="pillar-name">Child Rights & Education</div>
+      <p class="pillar-desc">Inculcating pluralism and constitutional values in young minds through KHOJ, while advancing Juvenile Justice Reform and child protection from sexual abuse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ACHIEVEMENTS ═══════════ -->
+<section id="achievements">
+  <div class="section-header reveal">
+    <div class="sh-line">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Key Achievements</div>
+    </div>
+    <h2 class="section-title">Impact & Milestones</h2>
+    <p class="section-desc">From landmark Supreme Court victories to grassroots legal empowerment, CJP's record of achievement remains unmatched in post-Independence India.</p>
+  </div>
+  <div class="achievements-layout">
+    <div class="achieve-list reveal">
+      <div class="achieve-item">
+        <div class="ai-num">01</div>
+        <div class="ai-content">
+          <div class="ai-title">68 Gujarat Carnage Cases</div>
+          <p class="ai-desc">Since 2002, CJP has battled over 68 cases related to the Gujarat carnage, resulting in convictions of powerful perpetrators — a record for convictions in any religious riot in independent India's history.</p>
+        </div>
+      </div>
+      <div class="achieve-item">
+        <div class="ai-num">02</div>
+        <div class="ai-content">
+          <div class="ai-title">170+ Total Convictions</div>
+          <p class="ai-desc">CJP's legal interventions led to over 170 convictions across nine major riot incidents, with 124 perpetrators awarded life imprisonment — a historic record.</p>
+        </div>
+      </div>
+      <div class="achieve-item">
+        <div class="ai-num">03</div>
+        <div class="ai-content">
+          <div class="ai-title">12 Lakh NRC Applications Supported</div>
+          <p class="ai-desc">CJP helped over 12 lakh Indian citizens in Assam compile documents and file NRC applications, while also helping 50+ eligible detention centre inmates obtain bail.</p>
+        </div>
+      </div>
+      <div class="achieve-item">
+        <div class="ai-num">04</div>
+        <div class="ai-content">
+          <div class="ai-title">Forest Rights for 7,000+ Adivasis</div>
+          <p class="ai-desc">Trained Adivasi and forest-dwelling people to file Community Forest Rights claims across 60 villages, and filed 150+ complaints against false prosecution of Adivasi rights defenders.</p>
+        </div>
+      </div>
+      <div class="achieve-item">
+        <div class="ai-num">05</div>
+        <div class="ai-content">
+          <div class="ai-title">KHOJ — 56,000 Students, 850 Schools</div>
+          <p class="ai-desc">CJP's flagship KHOJ education programme has reached 56,000+ students in over 850 schools, with 1,300 teachers trained to inculcate pluralism and constitutional values.</p>
+        </div>
+      </div>
+      <div class="achieve-item">
+        <div class="ai-num">06</div>
+        <div class="ai-content">
+          <div class="ai-title">200+ Hate Speech Petitions</div>
+          <p class="ai-desc">Through its "Hate Hatao: Nationwide" initiative, CJP has filed over 200 petitions with relevant authorities identifying hate speech targeting minorities, Dalits, Adivasis, women, children, and LGBTQIA+ individuals.</p>
+        </div>
+      </div>
+    </div>
+    <div class="achieve-sidebar reveal">
+      <div class="sidebar-card">
+        <div class="sc-label">Record Convictions — India</div>
+        <div class="sc-big">124</div>
+        <p class="sc-sub">Perpetrators awarded life imprisonment across nine major riot incidents — the highest number of life sentences secured for any religious riot in independent India.</p>
+      </div>
+      <div class="sidebar-card" style="margin-top:20px;">
+        <div class="sc-label">Best Bakery Case — 2004</div>
+        <div class="sc-big">21</div>
+        <p class="sc-sub">Accused whose acquittals were overturned by the Supreme Court, with the entire trial transferred to Maharashtra for a fresh and fair hearing — a landmark CJP victory.</p>
+      </div>
+      <div class="sidebar-note" style="margin-top:20px;">
+        <p class="sn-text">"Their 3-volume report, Crime Against Humanity, continues to be the most potent document on the Gujarat violence nationally and internationally."</p>
+        <p class="sn-author">— On the Concerned Citizens Tribunal</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROGRAMS ═══════════ -->
+<section id="programs">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Active Programs</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">Key Initiatives & Programs</h2>
+    <p class="section-desc">CJP's work spans education, legal empowerment, digital rights, and grassroots advocacy — reaching millions across India's most underserved communities.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal">
+      <span class="pc-tag">Education</span>
+      <div class="pc-icon">📚</div>
+      <div class="pc-title">KHOJ Program</div>
+      <p class="pc-desc">Provides school children with the opportunity to comprehend diversity, peace, and harmony through interactive, constitutionally-rooted pedagogy. Teachers are trained to build inclusive classroom cultures.</p>
+      <div class="pc-stat">📊 56,000+ Students · 850+ Schools · 1,300 Teachers</div>
+    </div>
+    <div class="program-card reveal">
+      <span class="pc-tag">Citizenship</span>
+      <div class="pc-icon">🇮🇳</div>
+      <div class="pc-title">NRC Citizenship Work</div>
+      <p class="pc-desc">In Assam, CJP helped over 12 lakh citizens compile documentation and file NRC applications. Helped 50+ eligible detention centre inmates secure bail and trained volunteers as paralegals.</p>
+      <div class="pc-stat">📊 12 Lakh+ Citizens Assisted · 50+ Released on Bail</div>
+    </div>
+    <div class="program-card reveal">
+      <span class="pc-tag">Land Rights</span>
+      <div class="pc-icon">🌲</div>
+      <div class="pc-title">Forest Rights (FRA 2006)</div>
+      <p class="pc-desc">Trains Adivasi and forest-working people to file Community Forest Rights claims. 7,000+ people trained across 60 villages; 150+ complaints filed against malicious prosecution of Adivasi defenders.</p>
+      <div class="pc-stat">📊 7,000+ Trained · 60 Villages · 150+ Petitions</div>
+    </div>
+    <div class="program-card reveal">
+      <span class="pc-tag">Counter Hate</span>
+      <div class="pc-icon">🚫</div>
+      <div class="pc-title">Hate Hatao Initiative</div>
+      <p class="pc-desc">A nationwide campaign to identify and report instances of hate speech targeting minorities, Dalits, Adivasis, women, children, and LGBTQIA+ individuals through petitions to statutory authorities.</p>
+      <div class="pc-stat">📊 200+ Petitions Filed Nationwide</div>
+    </div>
+    <div class="program-card reveal">
+      <span class="pc-tag">Legal Aid</span>
+      <div class="pc-icon">⚖️</div>
+      <div class="pc-title">Gujarat Riot Litigation</div>
+      <p class="pc-desc">CJP's most defining work — battling 68+ cases of the 2002 Gujarat carnage, securing over 170 convictions and 124 life sentences, and holding the state accountable through the courts.</p>
+      <div class="pc-stat">📊 68+ Cases · 170+ Convictions · 124 Life Terms</div>
+    </div>
+    <div class="program-card reveal">
+      <span class="pc-tag">Media</span>
+      <div class="pc-icon">📰</div>
+      <div class="pc-title">Digital Rights & Reporting</div>
+      <p class="pc-desc">CJP publishes rigorous investigative reporting and documentation on human rights violations, communal violence, and constitutional threats through its website and digital platforms, reaching millions of readers.</p>
+      <div class="pc-stat">📊 Millions Reached · Published Since 2002</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WANGCHUK BANNER ═══════════ -->
+<div id="wangchuk-banner">
+  <div class="wb-left reveal">
+    <div class="wb-eyebrow">Born 1 September 1966 · Leh, Ladakh</div>
+    <h2 class="wb-title">Sonam <em>Wangchuk</em><br/>Engineer, Activist & Reformer</h2>
+    <p class="wb-desc">
+      A mechanical engineer who became a school reformer, a sustainability innovator, and ultimately India's most visible protest voice for Ladakh's constitutional rights. Wangchuk is the real-life inspiration behind the character Phunsukh Wangdu in the Bollywood film <em>3 Idiots</em> (2009).
+    </p>
+    <div class="wb-badges">
+      <span class="wb-badge">🏆 Ramon Magsaysay 2018</span>
+      <span class="wb-badge">🧊 Ice Stupa Inventor</span>
+      <span class="wb-badge">🏫 SECMOL Founder</span>
+      <span class="wb-badge">⌚ Rolex Award 2016</span>
+      <span class="wb-badge">🌍 Global Architecture Award 2017</span>
+    </div>
+  </div>
+  <div class="wb-right reveal">
+    <div class="wb-facts">
+      <div class="wb-fact">
+        <div class="wbf-icon">🎓</div>
+        <div>
+          <div class="wbf-label">Education</div>
+          <div class="wbf-value">B.Tech, Mechanical Engineering — NIT Srinagar; Earthen Architecture — Craterre School, Grenoble, France</div>
+        </div>
+      </div>
+      <div class="wb-fact">
+        <div class="wbf-icon">👨‍👩‍👧</div>
+        <div>
+          <div class="wbf-label">Family</div>
+          <div class="wbf-value">Married to Gitanjali J Angmo, social entrepreneur & HIAL co-founder. Father Sonam Wangyal was a J&K government minister.</div>
+        </div>
+      </div>
+      <div class="wb-fact">
+        <div class="wbf-icon">🧊</div>
+        <div>
+          <div class="wbf-label">Signature Innovation</div>
+          <div class="wbf-value">Ice Stupa — an artificial glacier storing winter water in cone-shaped ice towers that melt gradually in spring for irrigation, using no electricity.</div>
+        </div>
+      </div>
+      <div class="wb-fact">
+        <div class="wbf-icon">✊</div>
+        <div>
+          <div class="wbf-label">Current Status (July 2026)</div>
+          <div class="wbf-value">On indefinite hunger strike at Jantar Mantar, New Delhi; hospitalised at Safdarjung Hospital on Day 21 as health deteriorated.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ INNOVATIONS ═══════════ -->
+<section id="innovations">
+  <div class="section-header reveal">
+    <div class="sh-line">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Inventions & Organisations</div>
+    </div>
+    <h2 class="section-title">Key Innovations by Sonam Wangchuk</h2>
+    <p class="section-desc">Wangchuk's innovations range from climate adaptation technology to education reform — each deeply rooted in Ladakh's geography, people, and culture.</p>
+  </div>
+  <div class="innovations-layout">
+    <div class="il-featured reveal">
+      <span class="ilf-badge">Signature Innovation</span>
+      <div class="ilf-icon">🧊</div>
+      <div class="ilf-title">The Ice Stupa</div>
+      <p class="ilf-desc">An artificial glacier that stores water in winter by spraying it into freezing mountain air, where it forms cone-shaped towers of ice. As temperatures rise in spring, the ice melts gradually — providing water for irrigation during Ladakh's driest period. The technology addresses glacial retreat caused by climate change and has attracted international attention as a low-cost climate adaptation solution.</p>
+      <div class="ilf-fact">
+        📅 <span><strong>October 2013 Prototype:</strong> Created a 6-metre ice stupa in Leh, freezing 150,000 litres. Water piped from upstream by gravity — no electricity or machinery. The stupa did not fully melt until 18 May 2014, even at 20°C+.</span>
+      </div>
+    </div>
+    <div class="il-list reveal">
+      <div class="il-item">
+        <div class="ili-icon">🏫</div>
+        <div>
+          <div class="ili-year">EST. 1988</div>
+          <div class="ili-title">SECMOL — Students' Educational & Cultural Movement of Ladakh</div>
+          <p class="ili-desc">Founded in 1988 by a group of students who felt victimised by an alien education system. Wangchuk designed the SECMOL campus to run entirely on solar energy — using no fossil fuels for cooking, lighting, or heating. A living model of sustainable education.</p>
+        </div>
+      </div>
+      <div class="il-item">
+        <div class="ili-icon">🌱</div>
+        <div>
+          <div class="ili-year">EST. 1994</div>
+          <div class="ili-title">Operation New Hope</div>
+          <p class="ili-desc">A 1994 collaboration between government, village communities, and civil society to reform Ladakh's government school system. Brought locally relevant curricula, community ownership, and improved learning outcomes to thousands of Ladakhi students.</p>
+        </div>
+      </div>
+      <div class="il-item">
+        <div class="ili-icon">🏛️</div>
+        <div>
+          <div class="ili-year">EST. RECENT</div>
+          <div class="ili-title">HIAL — Himalayan Institute of Alternatives, Ladakh</div>
+          <p class="ili-desc">Promotes experiential, sustainable, and locally relevant higher education tailored to Ladakh's unique context. Gitanjali J Angmo, Wangchuk's wife, is co-founder. HIAL is envisioned as an alternative to conventional urban higher education.</p>
+        </div>
+      </div>
+      <div class="il-item">
+        <div class="ili-icon">📰</div>
+        <div>
+          <div class="ili-year">1993–2005</div>
+          <div class="ili-title">Ladags Melong</div>
+          <p class="ili-desc">Edited Ladakh's only print magazine for over a decade — giving the region its own media voice and providing a platform to preserve Ladakhi culture, language, and local affairs for the wider public.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section id="timeline">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Protest Chronology</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">Timeline of Sonam Wangchuk's Protests</h2>
+    <p class="section-desc">From sub-zero hunger strikes in Leh to a 1,000-kilometre march to Delhi — the full documented timeline of Wangchuk's protest movement for Ladakh's constitutional rights.</p>
+  </div>
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+
+    <div class="tl-entry">
+      <div class="tl-node">❄</div>
+      <div class="tl-card gold">
+        <div class="tc-date">January 2023 · Leh, Ladakh</div>
+        <div class="tc-title">Five-Day Fast in Sub-Zero Temperatures</div>
+        <p class="tc-desc">Wangchuk observed a five-day hunger strike in sub-zero temperatures in Ladakh, demanding constitutional safeguards for the region — specifically Sixth Schedule status and statehood for Ladakh. This marked the formal beginning of his organised protest movement.</p>
+        <span class="tc-status gold">✓ Completed</span>
+      </div>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-node">🌿</div>
+      <div class="tl-card green">
+        <div class="tc-date">6 March – 26 March 2024 · Leh, Ladakh</div>
+        <div class="tc-title">21-Day "Climate Fast"</div>
+        <p class="tc-desc">Wangchuk launched a 21-day hunger strike describing it as a "Climate Fast" — drawing simultaneous attention to Ladakh's fragile ecosystem and reiterating demands for constitutional safeguards, after several rounds of talks with the Central Government failed to produce an agreement. He completed the fast on 26 March 2024 and announced relay strikes and a planned march to Delhi.</p>
+        <span class="tc-status green">✓ Completed — 26 March 2024</span>
+      </div>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-node">🚶</div>
+      <div class="tl-card navy">
+        <div class="tc-date">September – October 2024 · Ladakh to Delhi</div>
+        <div class="tc-title">Delhi Chalo Padyatra — Nearly 1,000 km March</div>
+        <p class="tc-desc">Wangchuk and more than 100 supporters began a nearly 1,000-kilometre march from Ladakh to Delhi. When the group reached Delhi on 1 October 2024, Delhi Police detained Wangchuk and several other protesters, citing prohibitory orders in force in the capital. Peaceful demonstrations continued after the detentions but demands remained unresolved.</p>
+        <span class="tc-status navy">Marched · Detained at Delhi Border</span>
+      </div>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-node">✊</div>
+      <div class="tl-card red">
+        <div class="tc-date">10 September 2025 · Leh, Ladakh</div>
+        <div class="tc-title">35-Day Hunger Strike & Violent Crackdown</div>
+        <p class="tc-desc">The Leh Apex Body launched a 35-day hunger strike after talks with the Centre failed. Wangchuk joined the fast. Protests escalated into violence — protesters pelted stones and burned down the BJP office in Leh. Police fired tear gas and carried out baton charges. At least 4 people were killed and about 50 were injured including 30 police personnel. Wangchuk was detained under the National Security Act (NSA).</p>
+        <span class="tc-status red">Violent Crackdown · Detained under NSA</span>
+      </div>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-node">🔓</div>
+      <div class="tl-card green">
+        <div class="tc-date">14 March 2026</div>
+        <div class="tc-title">Released After 170 Days of NSA Detention</div>
+        <p class="tc-desc">Wangchuk was released from detention after 170 days under the National Security Act. Following his release, Home Minister Amit Shah visited Ladakh on 30 April and 1 May 2026, and a fresh round of talks with the Central Government was held on 22 May 2026 — though the principal demands remained unresolved.</p>
+        <span class="tc-status green">✓ Released · Talks Resumed</span>
+      </div>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-node">🏛</div>
+      <div class="tl-card red">
+        <div class="tc-date">28 June 2026 — Ongoing · Jantar Mantar, New Delhi</div>
+        <div class="tc-title">Indefinite Hunger Strike — Jantar Mantar, Delhi</div>
+        <p class="tc-desc">Wangchuk began an indefinite hunger strike at Jantar Mantar in New Delhi — this time in solidarity with a youth-led movement demanding accountability over exam irregularities (NEET) and the resignation of Union Education Minister Dharmendra Pradhan. On Day 21, police took Wangchuk to Safdarjung Hospital as his health critically deteriorated. The Delhi High Court directed authorities to monitor his health daily.</p>
+        <span class="tc-status red">🔴 Ongoing · Hospitalised Day 21</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ DEMANDS TABLE ═══════════ -->
+<section id="demands">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Protest Demands</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">Key Demands Across All Protests</h2>
+  </div>
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Location</th>
+          <th>Key Demands</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jan 2023</td>
+          <td>Leh, Ladakh</td>
+          <td>Sixth Schedule status; Statehood for Ladakh; Environmental protection of Ladakh's fragile ecosystem</td>
+          <td><span class="t-badge t-gold">Completed</span></td>
+        </tr>
+        <tr>
+          <td>Mar–Apr 2024</td>
+          <td>Leh, Ladakh</td>
+          <td>Sixth Schedule; Statehood; Climate protection; Constitutional safeguards</td>
+          <td><span class="t-badge t-green">Completed</span></td>
+        </tr>
+        <tr>
+          <td>Sep–Oct 2024</td>
+          <td>Delhi Border</td>
+          <td>1,000 km padyatra; Statehood; Sixth Schedule; Release of activists</td>
+          <td><span class="t-badge t-blue">Detained at Border</span></td>
+        </tr>
+        <tr>
+          <td>Sep 2025</td>
+          <td>Leh, Ladakh</td>
+          <td>Statehood; Sixth Schedule; Compensation for violence victims; Release of all detainees</td>
+          <td><span class="t-badge t-red">Violent Crackdown</span></td>
+        </tr>
+        <tr>
+          <td>Jun–Jul 2026</td>
+          <td>Jantar Mantar, Delhi</td>
+          <td>NEET/Exam irregularity accountability; Resignation of Union Education Minister Dharmendra Pradhan</td>
+          <td><span class="t-badge t-red">🔴 Ongoing</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ AWARDS ═══════════ -->
+<section id="awards">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Recognition</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">Awards & Recognitions</h2>
+    <p class="section-desc">Honouring both Sonam Wangchuk's innovations and CJP's leadership figures for their extraordinary contributions to justice, sustainability, and civil society.</p>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card reveal">
+      <div class="award-year">2018</div>
+      <div class="award-icon">🏆</div>
+      <div class="award-name">Ramon Magsaysay Award</div>
+      <div class="award-org">For Education & Sustainable Development — Sonam Wangchuk</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-year">2016</div>
+      <div class="award-icon">⌚</div>
+      <div class="award-name">Rolex Awards for Enterprise</div>
+      <div class="award-org">Rolex Foundation — Ice Stupa Innovation — Sonam Wangchuk</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-year">2017</div>
+      <div class="award-icon">🌍</div>
+      <div class="award-name">Global Award for Sustainable Architecture</div>
+      <div class="award-org">Institut Français d'Architecture — Sonam Wangchuk</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-year">2007</div>
+      <div class="award-icon">🌸</div>
+      <div class="award-name">Padma Shri</div>
+      <div class="award-org">Government of India — Public Affairs — Teesta Setalvad (CJP Secretary)</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-year">2005</div>
+      <div class="award-icon">🇫🇷</div>
+      <div class="award-name">Knight of the Order of Merit</div>
+      <div class="award-org">French Government — Javed Anand (CJP Co-founder)</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-year">2004</div>
+      <div class="award-icon">⚖️</div>
+      <div class="award-name">Best Bakery SC Landmark</div>
+      <div class="award-org">Supreme Court of India — CJP-Led Legal Victory — Transfer of Trial to Maharashtra</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEY PEOPLE ═══════════ -->
+<section id="people">
+  <div class="section-header reveal">
+    <div class="sh-line">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Key Figures</div>
+    </div>
+    <h2 class="section-title">Central Personalities</h2>
+    <p class="section-desc">The individuals whose vision, sacrifice, and leadership have defined these two extraordinary movements in modern Indian history.</p>
+  </div>
+  <div class="people-grid">
+    <div class="person-card reveal">
+      <div class="person-avatar">👩</div>
+      <div class="person-role">CJP · Secretary & Co-founder</div>
+      <div class="person-name">Teesta Setalvad</div>
+      <p class="person-bio">Indian civil rights activist and journalist who co-founded CJP with Javed Anand in 2002. Has spent decades fighting in court for the victims of the Gujarat riots. Awarded Padma Shri in 2007 for contributions to Public Affairs.</p>
+      <span class="person-award">🌸 Padma Shri, 2007</span>
+    </div>
+    <div class="person-card reveal">
+      <div class="person-avatar">👨</div>
+      <div class="person-role">CJP · Co-founder</div>
+      <div class="person-name">Javed Anand</div>
+      <p class="person-bio">Journalist turned minority rights activist and Teesta Setalvad's husband. Co-founded CJP in 2002. Awarded the Knight of the Order of Merit by the French Government in 2005 for his civil rights work in India.</p>
+      <span class="person-award">🇫🇷 Knight of the Order of Merit, 2005</span>
+    </div>
+    <div class="person-card reveal">
+      <div class="person-avatar">🏔</div>
+      <div class="person-role">Activist & Innovator · Ladakh</div>
+      <div class="person-name">Sonam Wangchuk</div>
+      <p class="person-bio">Engineer, education reformer, environmentalist, and protest leader. Founder of SECMOL (1988) and inventor of the Ice Stupa. Ramon Magsaysay laureate (2018). Currently (July 2026) on an indefinite hunger strike at Jantar Mantar, Delhi.</p>
+      <span class="person-award">🏆 Ramon Magsaysay, 2018</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<section id="sources">
+  <div class="section-header centered reveal">
+    <div class="sh-line" style="justify-content:center;">
+      <div class="sh-rule"></div>
+      <div class="sh-eyebrow">Bibliography</div>
+      <div class="sh-rule"></div>
+    </div>
+    <h2 class="section-title">Primary Sources & References</h2>
+    <p class="section-desc">All data on this portal is sourced from publicly available, authoritative references listed below for full academic transparency.</p>
+  </div>
+  <div class="sources-grid reveal">
+    <div class="source-card">
+      <div class="src-icon">🌐</div>
+      <div>
+        <div class="src-type">Official Website</div>
+        <div class="src-title">Citizens for Justice and Peace</div>
+        <div class="src-url">cjp.org.in</div>
+      </div>
+    </div>
+    <div class="source-card">
+      <div class="src-icon">📖</div>
+      <div>
+        <div class="src-type">Encyclopaedia</div>
+        <div class="src-title">Wikipedia — Sonam Wangchuk</div>
+        <div class="src-url">en.wikipedia.org/wiki/Sonam_Wangchuk</div>
+      </div>
+    </div>
+    <div class="source-card">
+      <div class="src-icon">📖</div>
+      <div>
+        <div class="src-type">Encyclopaedia</div>
+        <div class="src-title">Wikipedia — Ladakh Protests</div>
+        <div class="src-url">en.wikipedia.org/wiki/Ladakh_protests</div>
+      </div>
+    </div>
+    <div class="source-card">
+      <div class="src-icon">📖</div>
+      <div>
+        <div class="src-type">Encyclopaedia</div>
+        <div class="src-title">Wikipedia — Citizens for Justice & Peace</div>
+        <div class="src-url">en.wikipedia.org/wiki/Citizens_for_Justice_and_Peace</div>
+      </div>
+    </div>
+    <div class="source-card">
+      <div class="src-icon">🏆</div>
+      <div>
+        <div class="src-type">Award Body</div>
+        <div class="src-title">Ramon Magsaysay Award Foundation</div>
+        <div class="src-url">rmaward.asia</div>
+      </div>
+    </div>
+    <div class="source-card">
+      <div class="src-icon">⚖️</div>
+      <div>
+        <div class="src-type">Legal Records</div>
+        <div class="src-title">Supreme Court of India — Gujarat Cases</div>
+        <div class="src-url">sci.gov.in</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-logo">Research <span>Portal</span></div>
+      <p class="fb-desc">A comprehensive academic research compendium on Citizens for Justice and Peace (CJP) and Sonam Wangchuk's protest movement. Built for public awareness, research, and education.</p>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">CJP</div>
+      <ul class="fc-links">
+        <li><a href="#cjp-overview">Overview</a></li>
+        <li><a href="#pillars">Four Pillars</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#programs">Programs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Sonam Wangchuk</div>
+      <ul class="fc-links">
+        <li><a href="#wangchuk-banner">Biography</a></li>
+        <li><a href="#innovations">Innovations</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#demands">Demands</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="fc-title">Research</div>
+      <ul class="fc-links">
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#people">Key People</a></li>
+        <li><a href="#sources">Sources</a></li>
+        <li><a href="#hero">Back to Top</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Research Portal · All Rights Reserved · Data sourced from public records</p>
+    <p class="footer-note">For academic and public awareness purposes only</p>
+  </div>
+</footer>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal, .tl-entry');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObserver.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animateCount(el, target) {
+  let start = null;
+  const duration = 1800;
+  const step = ts => {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString();
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString();
+  };
+  requestAnimationFrame(step);
+}
+
+const counterItems = document.querySelectorAll('[data-target]');
+let countersStarted = false;
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countersStarted) {
+      countersStarted = true;
+      counterItems.forEach(el => animateCount(el, parseInt(el.getAttribute('data-target'))));
+    }
+  });
+}, { threshold: 0.3 });
+
+const counterStrip = document.getElementById('counter-strip');
+if (counterStrip) counterObserver.observe(counterStrip);
+
+/* ── NAV SCROLL EFFECT ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.style.boxShadow = '0 2px 30px rgba(28,43,58,0.12)';
+  } else {
+    nav.style.boxShadow = '0 1px 20px rgba(28,43,58,0.07)';
+  }
+});
+
+/* ── NAV ACTIVE LINK ── */
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id], div[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--navy)' : '';
+    a.style.background = a.getAttribute('href') === '#' + current
+      ? 'var(--cream)' : '';
+  });
+});
+
+/* ── SMOOTH STAGGER FOR CARDS ── */
+document.querySelectorAll('.pillar-card, .program-card, .award-card, .person-card').forEach((card, i) => {
+  card.style.transitionDelay = (i % 4) * 0.08 + 's';
+});
+</script>
+</body>
+</html>
